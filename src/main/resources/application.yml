@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: 1234
+    url: jdbc:mysql://localhost:3306/bakery?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+      open-in-view: false
+      defer-datasource-initialization: true
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+    sql:
+      init:
+        mode: always
+      mvc:
+        hiddenmethod:
+          filter:
+            enabled: true
+    logging:
+      level:
+        org.hibernate.SQLQuery: TRACE
+        org.hibernate.type.descriptor: TRACE

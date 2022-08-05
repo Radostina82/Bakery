@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bakery Shop Application</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+<div th:replace="fragments/navbar">
+
+</div>
+
+</div>
+<div class="jumbotron">
+  <div class="container text-light ">
+    <h1 class="display-3">
+      <strong class="bg-blur rounded border-left border-white pl-3 border-bottom">Login</strong></h1>
+    <h3 class="mt-5 text-center"><strong class="bg-blur rounded border-white pl-3 border-bottom">Enter valid
+      username and
+      password</strong>
+    </h3>
+  </div>
+  <div class="container bg-blur rounded p-5 mt-5 w-75 ">
+    <form
+            th:action="@{/users/login}"
+            th:method="post"
+            th:object="${userModel}"
+          class="text-center text-light">
+      <h3 ]class="mt-5 text-center">
+        <strong class="invalid-feedback bg-blur rounded text-danger">
+          Wrong username and password combination.
+        </strong>
+      </h3>
+      <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control"
+                 id="username"
+                  name="username"
+                 aria-describedby="usernameHelpInline" placeholder="Email">
+          <small id="usernameHelpInline"
+                 class="invalid-feedback bg-danger text-light rounded">
+            Username length must be between 5 and 20 characters.
+          </small>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control"
+                 id="password"
+                  name="password"
+                 aria-describedby="passwordHelpInline" placeholder="Password">
+          <small id="passwordHelpInline"
+                 class="invalid-feedback bg-danger text-light rounded">
+            Password length must be more than 3 characters.
+          </small>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-info w-50">Login</button>
+    </form>
+    <hr class="bg-light">
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<footer class="container">
+  <p>&copy;SoftUni Spring Application 2022. All rights reserved.</p>
+</footer>
+</body>
+</html>
